@@ -1,0 +1,127 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Users</title>
+    <style type="text/css">
+        label{
+            width: 200px;
+            display: inline-block;
+            margin: 10px;
+            text-align: left;
+            font-family: Trebuchet MS;
+        }
+
+        span{
+            display: inline-block;
+            text-align: left;
+            width: 200px;
+        }
+        button{
+
+            padding: 10px;
+            margin: 10px;
+        }
+
+        select{
+            border: 1px solid #666666;
+            padding-left: 5px;
+            margin: 5px;
+            width: 250px;
+            height: 28px;
+            border-start-end-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 4px;
+            display: inline-block;
+        }
+
+        input[type="text"]{
+
+            width:250px;
+            height: 25px;
+            padding-left: 5px;
+            border: 1px solid #666666;
+            border-start-end-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 4px;
+            display: inline-block;
+
+        }
+
+        input[type="password"]{
+
+            width:250px;
+            height: 25px;
+            padding-left: 5px;
+            border: 1px solid #666666;
+            border-start-end-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-top-left-radius: 4px;
+            display: inline-block;
+
+        }
+
+
+    </style>
+        </head>
+<body>
+<div align="left">
+
+    <h1>Register Users</h1>
+
+    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+
+        <label>Full Name:</label>
+        <input type="text" th:field="*{name}" />
+
+        <br />
+        <label>E-Mail:</label>
+        <input type="text" th:field="*{email}" />
+
+        <br />
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" />
+
+        <br />
+        <label>Birthday(YYYY-MM-DD):</label>
+        <input type="text" th:field="*{birthday}" />
+        <br />
+
+        <label>Profession:</label>
+        <select th:field= ="*{profession}">
+            <option th:each="p:${professionList}" th:value="${p}" th:text="${p}" />
+        </select>
+
+        <br />
+
+        <label>Married?</label>
+            <input type="checkbox" th:field="*{married}" />
+            <br />
+            <label>Gender:</label>
+            <input type="radio" th:field="*{gender}" value="Male" />Male
+            <input type="radio" th:field="*{gender}" value="Female" />Female
+
+
+        <br />
+        <label>Note:</label>
+        <textarea cols="34" rows="15" th:field="*{note}"></textarea>
+
+        <br />
+        <button type="submit">Register</button>
+
+
+    </form>
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
